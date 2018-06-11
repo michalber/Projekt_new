@@ -52,7 +52,7 @@ uint16_t adc_read(uint8_t ch)
 	// Operacja AND z '7' zawsze da nam wartoœæ odcyztywan¹ przez przetwornik
 	// ch pomiêdzy 0 i 7
 	//ch &= 0b00000111;  // AND z 7
-	ADMUX = (ADMUX)|ch;     // Wyczyszczenie trzech dolnych bitów przed operacj¹ OR
+	//ADMUX = (ADMUX)|ch;     // Wyczyszczenie trzech dolnych bitów przed operacj¹ OR
 	
 	// Pocz¹tek pojedyñczej konwersji
 	// Zapisanie jedynki na ADSC
