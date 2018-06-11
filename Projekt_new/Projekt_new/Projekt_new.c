@@ -9,7 +9,24 @@
 //------------------------------------------------------------------
 //-- Definicje LCD --
 #define F_CPU 1000000
+#define LCD_RS_PORT PORTC
+#define LCD_RW_PORT PORTC
+#define LCD_DATA0_PORT PORTC
+#define LCD_DATA1_PORT PORTC
+#define LCD_DATA2_PORT PORTC
+#define LCD_DATA3_PORT PORTC
+#define LCD_E_PORT PORTC
+
+#define LCD_DATA0_PIN 0
+#define LCD_DATA1_PIN 1
+#define LCD_DATA2_PIN 2
+#define LCD_DATA3_PIN 3
+
+#define LCD_RS_PIN 4
+#define LCD_E_PIN 5
+#define LCD_RW_PIN 6
 //-------------------
+
 //-- Definicje przetwornika ADC --
 #define ADCIN PB3  //definicja ADCIN (wejœcie analogowe PortB03)  
 //--------------------------------
