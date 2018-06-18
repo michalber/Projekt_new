@@ -58,8 +58,10 @@ uint16_t adc_read(uint8_t ch)
 //-- Inicjalizacja przerwania -- 
 void break_init() {
 	 cli();    // na wszelki wypadek blokujemy przyjmowanie przerwañ
-	 MCUCR = (MCUCR & 0b1111100) | 0b10; // przerwanie przy zmianie INT0 1->0
-	 GIMSK |= (1<<INT0); // Uaktywniamy przerwanie INT0
+	 //MCUCR |= (MCUCR & 0b1111100) | 0b10; // przerwanie przy zmianie INT0 1->0
+	 MCUCR |= (1<<ISC01)|(1<<ISC00);
+	 GIFR |= (1<<INTF0); // Uaktywniamy przerwanie INT0
+	 GICR |= (1<<INT0);
 	 sei();   // odblokowujemy przyjmowanie przerwañ
 }
 // Obs³uga przerwania INT0 --
@@ -73,7 +75,7 @@ ISR(INT0_vect)
 	lcd_set_cursor(4,1);
 	lcd_puts("hPa");
 	
-	_delay_ms(5000);
+	_delay_ms(2000);
 }
 //------------------------------------------------------------------
 int main()
