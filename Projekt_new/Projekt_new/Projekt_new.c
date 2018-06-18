@@ -60,7 +60,7 @@ void break_init() {
 	 cli();    // na wszelki wypadek blokujemy przyjmowanie przerwañ
 	 //MCUCR |= (MCUCR & 0b1111100) | 0b10; // przerwanie przy zmianie INT0 1->0
 	 MCUCR |= (1<<ISC01)|(1<<ISC00);
-	 GIFR |= (1<<INTF0); // Uaktywniamy przerwanie INT0
+	 GIFR &= ~(1<<INTF0); / // Uaktywniamy przerwanie INT0
 	 GICR |= (1<<INT0);
 	 sei();   // odblokowujemy przyjmowanie przerwañ
 }
